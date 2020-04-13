@@ -1,0 +1,4 @@
+1、创建项目
+    vue init webpack client
+ cnpm i vuex -S   
+ cnpm i element-ui -S   
