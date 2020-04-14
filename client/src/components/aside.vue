@@ -48,28 +48,34 @@ export default {
       menuList: [
         {
           icont: "el-icon-s-tools",
-          name: "商店设置",
-          menuItem: [
-            {
-              title: "设置",
-              routeName: "Setting",
-              name: "设置"
-            },
-            {
-              title: "小程序广告图",
-              routeName: "WxAd",
-              name: "小程序广告图"
-            }
-          ]
+          name: "首页",
+          routeName: "Setting"
+          // menuItem: [
+          //   {
+          //     title: "设置",
+          //     routeName: "Setting",
+          //     name: "设置"
+          //   },
+          //   {
+          //     title: "小程序广告图",
+          //     routeName: "WxAd",
+          //     name: "小程序广告图"
+          //   }
+          // ]
         },
         {
           icont: "el-icon-s-order",
-          name: "订单",
+          name: "基础",
           menuItem: [
             {
-              title: "订单管理",
-              routeName: "orderList",
-              name: "订单管理"
+              title: "假期设置",
+              routeName: "day",
+              name: "假期设置"
+            },
+            {
+              title: "MI资料",
+              routeName: "mi",
+              name: "MI资料"
             }
           ]
         }
@@ -89,6 +95,7 @@ export default {
 <style scoped>
     .zgz-admin-index-aside{
         height: 100%;
+        width:100%;
         background-color: rgb(101, 109, 117);
     }
 </style>
