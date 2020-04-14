@@ -11,12 +11,16 @@
 		为了对应 tabs 的跳转点击 做选中
       -->
       <el-menu
-        :default-active="$route.name"
+        :default-active="1"
         class="el-menu-vertical-demo"
         background-color="#545c64"
         text-color="#fff"
         active-text-color="#ffd04b"
       >
+      <el-menu-item index="1">
+        <i class="el-icon-setting"></i>
+        <span slot="title">首页</span>
+      </el-menu-item>
         <!-- 循环数据格式 -->
         <el-submenu :index="`${index}`" v-for="(menu,index) in menuList" :key="index">
           <template slot="title">
@@ -48,6 +52,7 @@ export default {
       menuList: [
         {
           icont: "el-icon-s-tools",
+          title: "首页",
           name: "首页",
           routeName: "Setting"
           // menuItem: [
