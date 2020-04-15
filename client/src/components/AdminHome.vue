@@ -5,10 +5,10 @@
         <top-bar/>
       </el-header>
       <el-container>
-        <el-aside width="10%">
+        <el-aside width="160px">
            <left-nav/>
         </el-aside>
-        <el-main>
+        <el-main > 
           <right-tabs/>
         </el-main>
       </el-container>
