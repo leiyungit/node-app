@@ -5,7 +5,7 @@
         <top-bar/>
       </el-header>
       <el-container>
-        <el-aside width="200px">
+        <el-aside width="10%">
            <left-nav/>
         </el-aside>
         <el-main>
