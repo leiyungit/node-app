@@ -10,7 +10,7 @@ export default {
                             { name: '节假日', sub: '基础信息', index: 'menu12', componentPath: 'components/UserManager.vue' },
                             { name: 'MI', sub: '基础信息',  index: 'menu13' },
                             { name: '公式', sub: '基础信息',  index: 'menu14' },
-                            { name: '市场-内部PO', sub: '接口数据',  index: 'menu21', componentPath:'views/inputdata/sodata.vue'},
+                            { name: '同步-内部PO', sub: '接口数据',  index: 'menu21', componentPath:'views/inputdata/sodata.vue'},
                             { name: '接收-内部PO', sub: '接口数据',  index: 'menu22' },
                             { name: '生成排单', sub: '计划排单',  index: 'menu31' },
                             { name: '排单列表', sub: '计划排单',  index: 'menu32' },
