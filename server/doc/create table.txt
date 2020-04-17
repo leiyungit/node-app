@@ -1,0 +1,28 @@
+-- 生产型号配置（MI）
+--prod_pcs_pnl INT NOT NULL COMMENT 'pcs/pnl（订单单位/计划投料单位，如一个pnl可以开多少个pcs）',
+CREATE TABLE prod_config(
+   prod_no VARCHAR(100) NOT NULL COMMENT '生产型号',
+   PRIMARY KEY (prod_no)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+-- ALTER TABLE <表名> ADD <新字段名><数据类型><字段说明>comment <说明>
+-- alter table prod_config add column prod_pcs_pnl int  comment '单位'
+--
+CREATE TABLE prod_config_alter(
+   filed_name VARCHAR(100) NOT NULL COMMENT '字段名称',
+   filed_type VARCHAR(100) NOT NULL COMMENT '字段类型',
+   filed_desc VARCHAR(1000) NOT NULL COMMENT '字段描述',
+   is_merge   TINYINT NOT NULL '页面列表显示是否合并单元格，1：合并；0：不合并（则显示filed_after）'
+   filed_first VARCHAR(50) COMMENT '显示在页面列表的第一行的文本',
+   filed_after VARCHAR(50) NOT NULL COMMENT '显示在页面列表的第二行的文本'
+   isvalid TINYINT NOT NULL COMMENT '是否生效；1：动态向prod_config添加字段，0：取消prod_config对应的字段。',
+   PRIMARY KEY (filed_name),
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+-- 计划投料
+CREATE TABLE plan_feed(
+   pf_so_no VARCHAR(40) NOT NULL COMMENT '内部PO',
+   pf_prod_no VARCHAR(100) NOT NULL COMMENT '生产型号',
+   pf_pcs_pnl INT NOT NULL COMMENT 'pcs/pnl（订单单位/计划投料单位，如一个pnl可以开多少个pcs）',
+   pf_plan_num INT NOT NULL COMMENT '投料数（单位pnl）',
+   pf_stock_num INT NOT NULL COMMENT '使用库存数',
+   PRIMARY KEY (pf_so_no),
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
