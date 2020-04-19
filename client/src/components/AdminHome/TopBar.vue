@@ -1,7 +1,7 @@
 <template>
   <div class="top-bar">
     <div class="logo">
-      <h1>LOGO</h1>
+      <h1>计划排单</h1>
     </div>
     <div class="setting-btn">
       <el-popover

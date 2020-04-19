@@ -76,7 +76,7 @@
         <el-table-column prop="prod" label="生产型号" sortable width="120"></el-table-column>
         <el-table-column prop="date" label="交期" sortable width="100"></el-table-column>
         <el-table-column prop="order_num" label="订单数量" align="right" width="100"></el-table-column>
-        <el-table-column prop="status" label="状态" sortable width="160"></el-table-column>
+        <el-table-column prop="status" label="PO状态" sortable width="160"></el-table-column>
         <el-table-column prop="reamrk" label="备注" :formatter="formatter" show-overflow-tooltip></el-table-column>
         <el-table-column prop="create_date" label="创建时间" sortable width="160"></el-table-column>
         <el-table-column prop="modify_date" label="修改时间" sortable width="160"></el-table-column>
