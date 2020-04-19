@@ -55,5 +55,6 @@ export default {
   height: 100%;
   padding-top: 1px;
   padding-left: 1.5rem;
+  /* overflow: hidden; */
 }
 </style>

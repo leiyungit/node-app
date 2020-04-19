@@ -9,7 +9,8 @@ export default new Router({
       path: '/',
       name: 'UserLogin',
       component: () => import('@/components//UserLogin')
-    }, {
+    }, 
+    {
       path: '/adminhome',
       name: 'AdminHome',
       component: () => import('@/components//AdminHome')

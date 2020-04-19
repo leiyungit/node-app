@@ -2,3 +2,10 @@
     vue init webpack client
  cnpm i vuex -S   
  cnpm i element-ui -S   
+
+   cnpm install less less-loader
+   cnpm uninstall less-loader less
+
+cnpm install node-sass --save-dev 		//安装node-sass 
+cnpm install sass-loader@7.3.1 --save-dev  // sass-loader最新的版本太高，将报错
+设置 build/webpack.base.conf.js
