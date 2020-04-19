@@ -6,7 +6,7 @@
           <el-input v-model="search_data.so" placeholder="请输入内部PO" clearable></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="onSubmit" class="btn-search" icon="el-icon-search">查询</el-button>
+          <el-button type="primary" @click="search" class="btn-search" icon="el-icon-search">查询</el-button>
           <el-button type="primary" @click="searchBoxShow=!searchBoxShow" class="btn-search-drown">
             <i class="el-icon-arrow-down"></i>
           </el-button>
@@ -49,14 +49,14 @@
       </el-form>
       <div class="form-closex" slot="footer">
         <el-button size="small" type="primary" ghost @click="search">
-          <Icon type="md-search" />查询
+          <i type="md-search" />查询
         </el-button>
         <!-- <Icon type="md-close-circle" color="color" size="20" /> -->
         <el-button size="small" type="success" ghost @click="resetSearch">
-          <Icon type="md-refresh" />重置
+          <i type="md-refresh" />重置
         </el-button>
         <el-button size="small" type="warning" ghost @click="searchBoxShow=!searchBoxShow">
-          <Icon type="md-power" />关闭
+          <i type="md-power" />关闭
         </el-button>
       </div>
     </div>
@@ -86,7 +86,7 @@
       <el-pagination
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
-        :current-page="currentPage4"
+        :current-page="currentPage"
         :page-sizes="[100, 200, 300, 400]"
         :page-size="100"
         layout="total, sizes, prev, pager, next, jumper"
@@ -108,9 +108,10 @@ export default {
     return {
       dialog: { show: false },
       formData: {},
-      searchBoxShow: false,
+      currentPage: 1, // 当前分页选择
+      searchBoxShow: false, // 查询容器是否显示
       labelWidth: 100, //高级查询的标签宽度
-      tableHeight: window.innerHeight-210, // "72vh", // window.innerHeight-400
+      tableHeight: window.innerHeight-200, // 表格滚动条设置高度 "72vh", // window.innerHeight-400
       search_data: {
         so: "",
         prod: "",
