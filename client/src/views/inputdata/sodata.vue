@@ -12,7 +12,7 @@
           </el-button>
         </el-form-item>
         <el-form-item>
-          <el-button type="success">刷新</el-button>
+          <el-button type="success" @click="reLoad">刷新</el-button>
         </el-form-item>
         <el-form-item>
           <el-button type="danger" @click="handleAdd">添加</el-button>
@@ -72,12 +72,12 @@
       >
         <el-table-column type="selection" width="50"></el-table-column>
         <el-table-column type="index" label="序号" align="center" width="60"></el-table-column>
-        <el-table-column prop="so" label="内部PO" sortable width="120"></el-table-column>
-        <el-table-column prop="prod" label="生产型号" sortable width="120"></el-table-column>
-        <el-table-column prop="date" label="交期" sortable width="100"></el-table-column>
+        <el-table-column prop="so_no" label="内部PO" sortable width="120"></el-table-column>
+        <el-table-column prop="prod_no" label="生产型号" sortable width="160"></el-table-column>
+        <el-table-column prop="delivery_date" label="交期" sortable width="100"></el-table-column>
         <el-table-column prop="order_num" label="订单数量" align="right" width="100"></el-table-column>
-        <el-table-column prop="status" label="PO状态" sortable width="160"></el-table-column>
-        <el-table-column prop="reamrk" label="备注" :formatter="formatter" show-overflow-tooltip></el-table-column>
+        <el-table-column prop="so_status" label="PO状态" sortable width="160"></el-table-column>
+        <el-table-column prop="so_remark" label="备注" :formatter="formatter" show-overflow-tooltip></el-table-column>
         <el-table-column prop="create_date" label="创建时间" sortable width="160"></el-table-column>
         <el-table-column prop="modify_date" label="修改时间" sortable width="160"></el-table-column>
       </el-table>
@@ -99,6 +99,8 @@
 
 <script>
 import DialogSo from "@/components/so/DialogSo.vue";
+import ApiSyncInsideOrder from "@/api/SyncInsideOrder";
+
 export default {
   name: "sodata",
   components: {
@@ -119,224 +121,29 @@ export default {
         endTime: ""
       },
       multipleSelection: [],
-      tableData: [
-        {
-          so: "SO0001",
-          date: "2016-05-02",
-          prod: "A001H001",
-          order_num: "1000",
-          reamrk: "remark...abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz",
-          create_date: "2016-05-02 12:12:00",
-          modify_date: "2016-05-02 12:12:00"
-        },
-        {
-          so: "SO0002",
-          date: "2016-05-04",
-          prod: "A001H002",
-          order_num: "900",
-          reamrk: "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz remark...",
-          create_date: "2016-05-02 12:12:00",
-          modify_date: "2016-05-02 12:12:00"
-        },
-        {
-          so: "SO0003",
-          date: "2016-05-01",
-          prod: "A001H003",
-          order_num: "15000",
-          reamrk: "remark...",
-          create_date: "2016-05-02 12:12:00",
-          modify_date: "2016-05-02 12:12:00"
-        },
-        {
-          so: "SO0004",
-          date: "2016-05-03",
-          prod: "A001H004",
-          reamrk: "remark...",
-          
-        },
-        {
-          so: "SO0004",
-          date: "2016-05-03",
-          prod: "A001H004",
-          reamrk: "remark..."
-        },
-        {
-          so: "SO0004",
-          date: "2016-05-03",
-          prod: "A001H004",
-          reamrk: "remark..."
-        },
-        {
-          so: "SO0004",
-          date: "2016-05-03",
-          prod: "A001H004",
-          reamrk: "remark..."
-        },
-        {
-          so: "SO0004",
-          date: "2016-05-03",
-          prod: "A001H004",
-          reamrk: "remark..."
-        },
-        {
-          so: "SO0004",
-          date: "2016-05-03",
-          prod: "A001H004",
-          reamrk: "remark..."
-        },
-        {
-          so: "SO0004",
-          date: "2016-05-03",
-          prod: "A001H004",
-          reamrk: "remark..."
-        },
-        {
-          so: "SO0004",
-          date: "2016-05-03",
-          prod: "A001H004",
-          reamrk: "remark..."
-        },
-        {
-          so: "SO0004",
-          date: "2016-05-03",
-          prod: "A001H004",
-          reamrk: "remark..."
-        },
-        {
-          so: "SO0004",
-          date: "2016-05-03",
-          prod: "A001H004",
-          reamrk: "remark..."
-        },
-        {
-          so: "SO0004",
-          date: "2016-05-03",
-          prod: "A001H004",
-          reamrk: "remark..."
-        },
-        {
-          so: "SO0004",
-          date: "2016-05-03",
-          prod: "A001H004",
-          reamrk: "remark..."
-        },
-        {
-          so: "SO0004",
-          date: "2016-05-03",
-          prod: "A001H004",
-          reamrk: "remark..."
-        },
-        {
-          so: "SO0004",
-          date: "2016-05-03",
-          prod: "A001H004",
-          reamrk: "remark..."
-        },
-        {
-          so: "SO0004",
-          date: "2016-05-03",
-          prod: "A001H004",
-          reamrk: "remark..."
-        },
-        {
-          so: "SO0004",
-          date: "2016-05-03",
-          prod: "A001H004",
-          reamrk: "remark..."
-        },
-        {
-          so: "SO0004",
-          date: "2016-05-03",
-          prod: "A001H004",
-          reamrk: "remark..."
-        },
-        {
-          so: "SO0004",
-          date: "2016-05-03",
-          prod: "A001H004",
-          reamrk: "remark..."
-        },
-        {
-          so: "SO0004",
-          date: "2016-05-03",
-          prod: "A001H004",
-          reamrk: "remark..."
-        },
-        {
-          so: "SO0004",
-          date: "2016-05-03",
-          prod: "A001H004",
-          reamrk: "remark..."
-        },
-        {
-          so: "SO0004",
-          date: "2016-05-03",
-          prod: "A001H004",
-          reamrk: "remark..."
-        },
-        {
-          so: "SO0004",
-          date: "2016-05-03",
-          prod: "A001H004",
-          reamrk: "remark..."
-        },
-        {
-          so: "SO0004",
-          date: "2016-05-03",
-          prod: "A001H004",
-          reamrk: "remark..."
-        },
-        {
-          so: "SO0004",
-          date: "2016-05-03",
-          prod: "A001H004",
-          reamrk: "remark..."
-        },
-        {
-          so: "SO0004",
-          date: "2016-05-03",
-          prod: "A001H004",
-          reamrk: "remark..."
-        },
-        {
-          so: "SO0004",
-          date: "2016-05-03",
-          prod: "A001H004",
-          reamrk: "remark..."
-        },
-        {
-          so: "SO0004",
-          date: "2016-05-03",
-          prod: "A001H004",
-          reamrk: "remark..."
-        },
-        {
-          so: "SO0004",
-          date: "2016-05-03",
-          prod: "A001H004",
-          reamrk: "remark..."
-        },
-        {
-          so: "SO0004",
-          date: "2016-05-03",
-          prod: "A001H004",
-          reamrk: "remark..."
-        },
-        {
-          so: "SO0004",
-          date: "2016-05-03",
-          prod: "A001H004",
-          reamrk: "remark..."
-        }
-      ]
+      tableData: []
     };
+  },
+  created(){
+    this.getSodata();
   },
   methods: {
     getSodata() {
       // 初始化加载
+      ApiSyncInsideOrder.getSolist()
+      .then(res=>{
+         console.log(res);
+        this.tableData=res.data;
+      })
+      .catch(err=>{
+        this.$message.error("未知错误请重试");
+      })
+    },
+    reLoad(){
+      this.getSodata();
     },
     formatter(row, column) {
-      return row.reamrk;
+      return row.so_remark;
     },
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`);
